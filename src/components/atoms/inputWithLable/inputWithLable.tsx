@@ -1,27 +1,29 @@
-import React, { FunctionComponent, RefObject, useState } from 'react';
-import { Box, Button, TextInput } from 'grommet';
+import { FunctionComponent, useState } from 'react';
+import { Box, Button } from 'grommet';
+import { UseFormRegisterReturn } from 'react-hook-form';
+import { Hide, View } from 'grommet-icons';
 
 import * as S from './styled';
-import { Hide, View } from 'grommet-icons';
-import { UseFormRegisterReturn } from 'react-hook-form';
 
 type InputWithLableProps = {
   register: UseFormRegisterReturn;
   name: string;
   passowrd?: boolean;
+  error?: string;
 };
 
 const InputWithLable: FunctionComponent<InputWithLableProps> = ({
   register,
   name,
   passowrd = false,
+  error,
 }) => {
   const [reveal, setReveal] = useState(false);
   return (
     <Box>
-      <label htmlFor={name}>{name}</label>
+      <S.Label htmlFor={name}>{name}</S.Label>
       <Box direction="row" align="center" round="small" border>
-        <TextInput
+        <S.Input
           plain
           name={name}
           id={name}
@@ -37,7 +39,7 @@ const InputWithLable: FunctionComponent<InputWithLableProps> = ({
           />
         )}
       </Box>
-      <span>Error</span>
+      {error && <S.Error>{error}</S.Error>}
     </Box>
   );
 };
