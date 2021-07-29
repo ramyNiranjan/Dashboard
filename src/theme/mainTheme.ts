@@ -8,5 +8,8 @@ export const mainTheme = deepMerge(grommet, {
         secondary: '#F5F5F5',
         secondaryText: '858585'
       }
+    },
+    formField:{
+      // border: 'none'
     }
   });
