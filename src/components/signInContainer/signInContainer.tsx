@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Form,
-  FormField,
-  Text,
-  TextInput,
-} from 'grommet';
+import { Box, Button, Form, Text } from 'grommet';
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { Google, Apple, Search, View, Hide } from 'grommet-icons';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -58,7 +51,8 @@ const SignInContainer: FunctionComponent<SignInContainerProps> =
               error={errors?.Password?.message}
               passowrd
             />
-            <Button type="submit" label="Update" primary />
+            <S.NavLink>Forgot password?</S.NavLink>
+            <Button type="submit" label="Sign In" primary />
           </Form>
         </Box>
       </S.Container>
